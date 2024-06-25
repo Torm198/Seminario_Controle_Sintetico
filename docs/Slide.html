@@ -10,7 +10,6 @@
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.47">
 
-  <meta name="author" content="++++++++">
   <title>Controle Sintético</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -29,6 +28,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #767676;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #767676;  padding-left: 4px; }
+    div.sourceCode
+      { color: #545454; background-color: #fefefe; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #545454; } /* Normal */
+    code span.al { color: #7928a1; } /* Alert */
+    code span.an { color: #696969; } /* Annotation */
+    code span.at { color: #a55a00; } /* Attribute */
+    code span.bn { color: #7928a1; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #d91e18; } /* ControlFlow */
+    code span.ch { color: #008000; } /* Char */
+    code span.cn { color: #d91e18; } /* Constant */
+    code span.co { color: #696969; } /* Comment */
+    code span.cv { color: #696969; font-style: italic; } /* CommentVar */
+    code span.do { color: #696969; font-style: italic; } /* Documentation */
+    code span.dt { color: #7928a1; } /* DataType */
+    code span.dv { color: #7928a1; } /* DecVal */
+    code span.er { color: #7928a1; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #a55a00; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #696969; } /* Information */
+    code span.kw { color: #d91e18; } /* Keyword */
+    code span.op { color: #00769e; } /* Operator */
+    code span.ot { color: #d91e18; } /* Other */
+    code span.pp { color: #7928a1; } /* Preprocessor */
+    code span.sc { color: #00769e; } /* SpecialChar */
+    code span.ss { color: #008000; } /* SpecialString */
+    code span.st { color: #008000; } /* String */
+    code span.va { color: #a55a00; } /* Variable */
+    code span.vs { color: #008000; } /* VerbatimString */
+    code span.wa { color: #696969; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -333,7 +397,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-++++++++ 
+Gabriel T. Alves, Felipe, Emerson A. Rivera 
 </div>
         <p class="quarto-title-affiliation">
             Instituto de Matemática, Estatística e Computação Científica (IMECC), <br> Universidade Estadual de Campinas (UNICAMP).
@@ -345,10 +409,10 @@
 <nav role="doc-toc"> 
 <h2 id="toc-title">Conteúdo</h2>
 <ul>
-<li class="fragment"><a href="#/controle-sintético-introdução" id="/toc-controle-sintético-introdução">Controle Sintético: Introdução</a></li>
-<li class="fragment"><a href="#/controle-sintético-modelo" id="/toc-controle-sintético-modelo">Controle Sintético: Modelo</a></li>
-<li class="fragment"><a href="#/controle-sintético-implementação" id="/toc-controle-sintético-implementação">Controle Sintético: Implementação</a></li>
-<li class="fragment"><a href="#/controle-sintético-aplicação" id="/toc-controle-sintético-aplicação">Controle Sintético: Aplicação</a></li>
+<li><a href="#/controle-sintético-introdução" id="/toc-controle-sintético-introdução">Controle Sintético: Introdução</a></li>
+<li><a href="#/controle-sintético-modelo" id="/toc-controle-sintético-modelo">Controle Sintético: Modelo</a></li>
+<li><a href="#/controle-sintético-implementação" id="/toc-controle-sintético-implementação">Controle Sintético: Implementação</a></li>
+<li><a href="#/anexo" id="/toc-anexo">Anexo</a></li>
 </ul>
 </nav>
 </section>
@@ -359,8 +423,11 @@
 </section>
 <section id="introdução" class="slide level2">
 <h2>Introdução</h2>
+<p>_ Em muitas situações queremos avaliar o efeito de um acontecimento em unidades de grupos agregados (i.e.&nbsp;cidades, estados, entidades) ao longo do tempo;</p>
 <ul>
-<li class="fragment"></li>
+<li><p>Com o métodos de matching é possível avaliar impacto da intervenção comparando com unidades de controle não afetadas;</p></li>
+<li><p>Se destaca por precisar apenas de dados agregados, que geralmente são de fácil acesso;</p></li>
+<li><p>Contudo, a definição do grupo de controle pode ser arbitrária;</p></li>
 </ul>
 </section></section>
 <section>
@@ -371,134 +438,154 @@
 <section id="modelo" class="slide level2">
 <h2>Modelo</h2>
 <ul>
-<li class="fragment"><p>Conta-se <span class="math inline">\(J+1\)</span> Unidades observadas em <span class="math inline">\(T\)</span> periodos.</p>
+<li><p>Conta-se <span class="math inline">\(J+1\)</span> Unidades observadas em <span class="math inline">\(T\)</span> periodos.</p>
 <ul>
-<li class="fragment">A primeira unidade sofre intervenção</li>
-<li class="fragment"><strong>Donor pool</strong>, potenciais controles, é o conjunto das unidades 2 a <span class="math inline">\(J+1\)</span></li>
+<li>A primeira unidade sofre intervenção</li>
+<li>Donor pool, potenciais controles, é o conjunto das unidades <span class="math inline">\(2\)</span> a <span class="math inline">\(J+1\)</span></li>
 </ul></li>
-<li class="fragment"><p>A intervenção ocorre a partir de <span class="math inline">\(T_0\)</span> tal que <span class="math inline">\(1 \leq T_0\leq T\)</span> e seus efeitos podem se propagar de <span class="math inline">\(T_0+1\)</span> a <span class="math inline">\(T\)</span>.</p></li>
-<li class="fragment"><p><span class="math inline">\(Y_{it}^N:\)</span> Resultados potenciais de unidade <span class="math inline">\(i\)</span> no período <span class="math inline">\(t\)</span> (<em>sem intervenção</em>)</p></li>
-<li class="fragment"><p><span class="math inline">\(Y_{it}^{I}:\)</span> Resultados potenciais de unidade <span class="math inline">\(i\)</span> nos períodos <span class="math inline">\(t\)</span> posteriores à exposição de <span class="math inline">\(i\)</span> à intervenção.</p></li>
-<li class="fragment"><p>A intervenção não afeta <span class="math inline">\(Y\)</span> antes da implementação e os <span class="math inline">\(Y\)</span> não-tratadas não são impactados pela intervenção.</p></li>
+<li><p>A intervenção ocorre a partir de <span class="math inline">\(T_0\)</span> tal que <span class="math inline">\(1 \leq T_0\leq T\)</span> e seus efeitos podem se propagar de <span class="math inline">\(T_0+1\)</span> a <span class="math inline">\(T\)</span>.</p></li>
+<li><p><span class="math inline">\(Y_{it}^N:\)</span> Resultados potenciais da unidade <span class="math inline">\(i\)</span> no período <span class="math inline">\(t\)</span> (<em>sem intervenção</em>)</p></li>
+<li><p><span class="math inline">\(Y_{it}^{I}:\)</span> Resultados potenciais da unidade <span class="math inline">\(i\)</span> nos períodos <span class="math inline">\(t\)</span> posteriores à exposição de <span class="math inline">\(i\)</span> à intervenção.</p></li>
+<li><p>A intervenção não afeta <span class="math inline">\(Y\)</span> antes da implementação e os <span class="math inline">\(Y\)</span> não-tratadas não são impactados pela intervenção.</p></li>
 </ul>
 </section>
 <section id="modelo-1" class="slide level2">
 <h2>Modelo</h2>
 <ul>
-<li class="fragment">Sejam:
+<li>Sejam:
 <ul>
-<li class="fragment"><span class="math inline">\(\alpha_{it}=Y_{it}^I-Y_{it}^{N}\)</span> o efeito da intervenção na unidade <span class="math inline">\(i\)</span> em <span class="math inline">\(t\)</span>
-<ul>
-<li class="fragment"><span class="math inline">\(D_{it}=1\)</span> se <span class="math inline">\(i=1\)</span> e <span class="math inline">\(t&gt;T_0\)</span> e <span class="math inline">\(D_{it}=0\)</span> caso contrário</li>
+<li><span class="math inline">\(\alpha_{it}=Y_{it}^I-Y_{it}^{N}\)</span> o efeito da intervenção na unidade <span class="math inline">\(i\)</span> em <span class="math inline">\(t\)</span></li>
+<li><span class="math inline">\(D_{it}=1\)</span>, se <span class="math inline">\(i=1\)</span> e <span class="math inline">\(t&gt;T_0\)</span>, e <span class="math inline">\(D_{it}=0\)</span>, caso contrário</li>
 </ul></li>
-</ul></li>
-<li class="fragment">os resultados são</li>
+<li>Considere que o resultado observado para uma unidade <span class="math inline">\(i\)</span> em <span class="math inline">\(t\)</span> é</li>
 </ul>
-<p><span class="math display">\[Y_{it}=Y_{it}^N + \alpha_{it}D_{it}\]</span></p>
+<p><span id="eq-1"><span class="math display">\[Y_{it}=Y_{it}^N + \alpha_{it}D_{it} \qquad(1)\]</span></span></p>
 <ul>
-<li class="fragment"><p>e queremos estimar <span class="math inline">\(\alpha_{1t}=Y_{1t}^I-Y_{1t}^N\)</span></p></li>
-<li class="fragment"><p><span class="math inline">\(Y_{1t}^N\)</span> é missing após a intervenção.</p></li>
-<li class="fragment"><p>Suponga que a equação de <span class="math inline">\(Y_{it}^N\)</span> seja dada pelo modelo de fatores</p></li>
+<li>Nosso objetivo é estimar <span class="math inline">\(\alpha_{1t}=Y_{1t}^I-Y_{1t}^N, \forall t&gt;T_0\)</span></li>
 </ul>
-<p><span class="math display">\[Y_{it}^N=\delta_t+\theta_t Z_i + \lambda_t \mu_i + \varepsilon_{it}\]</span></p>
 </section>
 <section id="modelo-2" class="slide level2">
 <h2>Modelo</h2>
 <ul>
-<li class="fragment"><p><span class="math inline">\(\delta_t\)</span>: é um fator comum no tempo não observado (comum entre as unidades )</p></li>
-<li class="fragment"><p><span class="math inline">\(Z_i\)</span>: é o vetor de covariadas observadas (não-afeladas pelo tratamento)<br>
-</p></li>
-<li class="fragment"><p><span class="math inline">\(\lambda_t\)</span>: é um vetor de fatores comuns não-observados</p></li>
-<li class="fragment"><p><span class="math inline">\(\mu_i\)</span>: é um vetor de fatores específicos</p></li>
-<li class="fragment"><p><span class="math inline">\(\varepsilon_{it}\)</span>: reprecenta choques transitórios.</p></li>
-<li class="fragment"><p><span class="math inline">\(\lambda_t \mu_i\)</span> permite que efeitos fixos variem no tempo ( mudanças temporárias), permite respostas heterôgeneas para fatores não-observados multiplos.</p></li>
-<li class="fragment"><p>Cosidere um vetor de pesos <span class="math inline">\(W=(W_1,W_2,...,W_{J+1})\)</span> em que <span class="math inline">\(W_j\geq 0\)</span>, <span class="math inline">\(\forall j\)</span> e que <span class="math inline">\(\sum_{j=2}^{J+1}W_j=1\)</span>. cada <span class="math inline">\(W\)</span> representa um controle sintético (media ponderada das regiões) e o resultado potencial de cada controle sintético é: <span class="math display">\[\sum_{j=2}^{J+1} W_jY_{jt}^N=\delta_t+\theta_t\sum_{j=2}^{J+1} W_jZ_j + \lambda_t\sum_{j=2}^{J+1} W_j\mu_j+ \sum_{j=2}^{J+1} W_j\varepsilon_{jt}\]</span></p></li>
+<li>Suponha que a equação de <span class="math inline">\(Y_{it}^N\)</span> seja dada pelo modelo de fatores</li>
+</ul>
+<p><span id="eq-2"><span class="math display">\[Y_{it}^N=\delta_t+\theta_t Z_i + \lambda_t \mu_i + \varepsilon_{it} \qquad(2)\]</span></span></p>
+<ul>
+<li><span class="math inline">\(\delta_t\)</span>: é um fator comum no tempo não observado (comum entre as unidades)</li>
+<li><span class="math inline">\(Z_i\)</span>: é o vetor de covariáveis observadas (não-afeladas pelo tratamento)<br>
+</li>
+<li><span class="math inline">\(\lambda_t\)</span>: é um vetor de fatores comuns não-observados</li>
+<li><span class="math inline">\(\mu_i\)</span>: é um vetor de fatores específicos</li>
+<li><span class="math inline">\(\varepsilon_{it}\)</span>: representa choques transitórios.</li>
+<li><span class="math inline">\(\lambda_t \mu_i\)</span> permite que efeitos fixos variem no tempo (mudanças temporárias), permitindo respostas heterogêneas para fatores não-observados multiplos.</li>
 </ul>
 </section>
 <section id="modelo-3" class="slide level2">
 <h2>Modelo</h2>
 <ul>
-<li class="fragment"><p>Assim, tem-se que, subtraindo as equações (para <span class="math inline">\(i=1\)</span>), <span class="math display">\[Y_{1t}^N-\sum_{j=2}^{J+1} W_jY_{jt}^N=\theta_t \left [ Z_1-\sum_{j=2}^{J+1} W_jZ_j \right ]+ \lambda_t \left[ \mu_1-\sum_{j=2}^{J+1} W_j\mu_j \right ]+ \sum_{j=2}^{J+1} W_j\left(\varepsilon_{1t}-\varepsilon_{jt} \right )\]</span></p></li>
-<li class="fragment"><p>Assuma que <span class="math inline">\(\varepsilon_{it}\)</span> sejam independentes entre <span class="math inline">\(i\)</span> e <span class="math inline">\(t\)</span>.</p></li>
-<li class="fragment"><p>Mesmo assim, fatores não-observados <span class="math inline">\(U_{it}=\lambda_{t}\mu_i+\varepsilon_{it}\)</span> podem ser correlacionados entre <span class="math inline">\(i\)</span> e <span class="math inline">\(t\)</span> por conta de <span class="math inline">\(\lambda_t\mu_i\)</span>.</p></li>
-<li class="fragment"><p>Por conta disso, não se pode estimar por MQO e é preciso eliminar o problema dos fatores não-observados.</p></li>
-<li class="fragment"><p>Desta forma, é preciso supor que <span class="math inline">\(\varepsilon_{it}\)</span> sejam independentes de <span class="math inline">\(\{ Z_i, U_i\}_{i=1}^{J+1}\)</span>.</p></li>
+<li><p>Considere um vetor de pesos <span class="math inline">\(W=(W_1,W_2,...,W_{J+1})\)</span> em que <span class="math inline">\(W_j\geq 0\)</span>, <span class="math inline">\(\forall j\)</span> e que <span class="math inline">\(\sum_{j=2}^{J+1}W_j=1\)</span>. cada <span class="math inline">\(W\)</span> representa um controle sintético (media ponderada das regiões) e o resultado potencial de cada controle sintético é: <span id="eq-3"><span class="math display">\[\sum_{j=2}^{J+1} W_jY_{jt}^N=\delta_t+\theta_t\sum_{j=2}^{J+1} W_jZ_j + \lambda_t\sum_{j=2}^{J+1} W_j\mu_j+ \sum_{j=2}^{J+1} W_j\varepsilon_{jt} \qquad(3)\]</span></span></p></li>
+<li><p>Assim, tem-se que, subtraindo as equações (para <span class="math inline">\(i=1\)</span>),</p></li>
 </ul>
+<p><span id="eq-4"><span class="math display">\[
+\begin{align}
+    Y_{1t}^N-\sum_{j=2}^{J+1} W_jY_{jt}^N &amp; =\theta_t \left [ Z_1-\sum_{j=2}^{J+1} W_jZ_j \right ]+ \lambda_t \left[ \mu_1-\sum_{j=2}^{J+1} W_j\mu_j \right ] \\
+        &amp; + \sum_{j=2}^{J+1} W_j\left(\varepsilon_{1t}-\varepsilon_{jt} \right )
+\end{align}
+\qquad(4)\]</span></span></p>
 </section>
 <section id="modelo-4" class="slide level2">
 <h2>Modelo</h2>
 <ul>
-<li class="fragment">denotemos por <span class="math inline">\(P\)</span> os siguintes vetores pré-tratamento:
+<li>denotemos por <span class="math inline">\(P\)</span> os siguintes vetores pré-tratamento:
 <ul>
-<li class="fragment"><span class="math inline">\(Y_i^P:\)</span> vetor <span class="math inline">\(T_0 \times 1\)</span> com o -t-ésimo elemento de <span class="math inline">\(Y_{it}\)</span></li>
-<li class="fragment"><span class="math inline">\(\varepsilon^P:\)</span> vetor <span class="math inline">\(T_0 \times 1\)</span> com o -t-ésimo elemento de <span class="math inline">\(\varepsilon_{it}\)</span></li>
-<li class="fragment"><span class="math inline">\(\theta^P:\)</span> vetor <span class="math inline">\(T_0 \times r\)</span> com o -t-ésima linha <span class="math inline">\(\theta_t\)</span></li>
-<li class="fragment"><span class="math inline">\(\lambda^P:\)</span> vetor <span class="math inline">\(T_0 \times f\)</span> com o -t-ésima linha <span class="math inline">\(\lambda_t\)</span></li>
+<li><span class="math inline">\(Y_i^P:\)</span> vetor <span class="math inline">\(T_0 \times 1\)</span> com o t-ésimo elemento de <span class="math inline">\(Y_{it}\)</span></li>
+<li><span class="math inline">\(\varepsilon^P:\)</span> vetor <span class="math inline">\(T_0 \times 1\)</span> com o t-ésimo elemento de <span class="math inline">\(\varepsilon_{it}\)</span></li>
+<li><span class="math inline">\(\theta^P:\)</span> vetor <span class="math inline">\(T_0 \times r\)</span> com o t-ésima linha <span class="math inline">\(\theta_t\)</span></li>
+<li><span class="math inline">\(\lambda^P:\)</span> vetor <span class="math inline">\(T_0 \times f\)</span> com o t-ésima linha <span class="math inline">\(\lambda_t\)</span></li>
 </ul></li>
-<li class="fragment">Obtenemos da equação aplicada ao período pre-tratamento</li>
+<li>Obtemos da equação aplicada ao período pre-tratamento</li>
 </ul>
-<p><span class="math display">\[Y_{1}^P-\sum_{j=2}^{J+1} W_jY_{j}^P=\theta^P \left [ Z_1-\sum_{j=2}^{J+1} W_jZ_j \right ]+ \lambda^P \left[ \mu_1-\sum_{j=2}^{J+1} W_j\mu_j \right ]+ \left(\varepsilon_1^{P}- \sum_{j=2}^{J+1} W_j \varepsilon_{j}^P\right )\]</span></p>
-<ul>
-<li class="fragment">Assuma que <span class="math inline">\(\lambda^{{P}^T} \lambda^P\)</span> seja não-singular</li>
-<li class="fragment">Subtraindo a equação multiplicada por <span class="math inline">\(\lambda_t \left(\lambda^{{P}^T} \lambda^P \right)^{-1} \lambda^{{P}^T}\)</span></li>
-</ul>
+<p><span id="eq-5"><span class="math display">\[
+\begin{align}
+   Y_{1}^P-\sum_{j=2}^{J+1} W_jY_{j}^P &amp; =\theta^P \left [ Z_1-\sum_{j=2}^{J+1} W_jZ_j \right ]+ \lambda^P \left[ \mu_1-\sum_{j=2}^{J+1} W_j\mu_j \right ] \\
+        &amp; + \left(\varepsilon_1^{P}- \sum_{j=2}^{J+1} W_j \varepsilon_{j}^P\right )
+\end{align}
+\qquad(5)\]</span></span></p>
 </section>
 <section id="modelo-5" class="slide level2">
 <h2>Modelo</h2>
-<p><span class="math display">\[\left(  Y_{1t}^N - \sum_{j=2}^{J+1} W_jY_{jt}^N \right)-\lambda_t \left(\lambda^{{P}^T} \lambda^P \right)^{-1} \lambda^{{P}^T} \left ( Y_{1}^P\sum_{j=2}^{J+1} W_jY_{j}^P \right)\]</span></p>
-<p><span class="math display">\[= \left( \theta_t-\lambda_t \left(\lambda^{{P}^T} \lambda^P \right)^{-1} \lambda^{{P}^T}\theta^P \right) \left [ Z_1-\sum_{j=2}^{J+1} W_jZ_j \right ]\]</span></p>
-<p><span class="math display">\[+\left( \lambda_t- \lambda_t \left(\lambda^{{P}^T} \lambda^P \right)^{-1} \lambda^{{P}^T}  \lambda^P \right) \left[ \mu_1-\sum_{j=2}^{J+1} W_j\mu_j \right ]\]</span></p>
-<p><span class="math display">\[+ \sum_{j=2}^{J+1} W_j\left(\varepsilon_{1t}-\varepsilon_{jt} \right )-  \lambda_t \left(\lambda^{{P}^T} \lambda^P \right)^{-1} \lambda^{{P}^T} \left(\varepsilon_1^{P}- \sum_{j=2}^{J+1} W_j \varepsilon_{j}^P\right )\]</span></p>
+<ul>
+<li>Suponha agora que exista <span class="math inline">\(W^*=(W_1^*,W_2^*,...,W_{J+1}^*)\)</span> tal que</li>
+</ul>
+<div style="font-size: 80%;">
+<p><span class="math display">\[\begin{align}
+\sum_{j=2}^{J+1}W_j^* Y_{j1}&amp;=Y_{11}\\
+\sum_{j=2}^{J+1}W_j^* Y_{j2}&amp;=Y_{12}\\
+.&amp;\\
+.&amp;\\
+.&amp;\\
+\sum_{j=2}^{J+1}W_j^* Y_{jT_0}&amp;=Y_{1T_0}\\
+\sum_{j=2}^{J+1}W_j^* Z_{j}&amp;=Z_{1}\\
+
+\end{align}\]</span></p>
+</div>
 </section>
 <section id="modelo-6" class="slide level2">
 <h2>Modelo</h2>
-<p><span class="math display">\[\left(  Y_{1t}^N - \sum_{j=2}^{J+1} W_jY_{jt}^N \right) = \lambda_t \left(\lambda^{{P}^T} \lambda^P \right)^{-1} \lambda^{{P}^T} \left ( Y_{1}^P\sum_{j=2}^{J+1} W_jY_{j}^P \right)\]</span></p>
-<p><span class="math display">\[+ \left( \theta_t-\lambda_t \left(\lambda^{{P}^T} \lambda^P \right)^{-1} \lambda^{{P}^T}\theta^P \right) \left [ Z_1-\sum_{j=2}^{J+1} W_jZ_j \right ]\]</span></p>
-<p><span class="math display">\[+ \sum_{j=2}^{J+1} W_j\left(\varepsilon_{1t}-\varepsilon_{jt} \right )-  \lambda_t \left(\lambda^{{P}^T} \lambda^P \right)^{-1} \lambda^{{P}^T} \left ( \sum_{j=2}^{J+1} W_j\left(\varepsilon_{1}^P-\varepsilon_{j}^P \right )  \right)\]</span></p>
 <ul>
-<li class="fragment">Suponha agora que exista <span class="math inline">\(W^*=(W_1^*,W_2^*,...,W_{J+1}^*)\)</span> tal que <span class="math display">\[\sum_{j=2}^{J+1}W_j^* Y_{j1}=Y_{11},\sum_{j=2}^{J+1}W_j^* Y_{j2}=Y_{12},...,\sum_{j=2}^{J+1}W_j^* Y_{jT_0}=Y_{1T_0}, \sum_{j=2}^{J+1}W_j^* Z_{j}=Z_{1} \]</span></li>
+<li>Assim, o ajuste do contrafactual pode ser reduzido a</li>
 </ul>
+<p><span class="math display">\[Y_{1j}^N-\sum W_j^* Y_{jt}^N=R_{1t}+R_{2t}+R_{3t}\]</span></p>
+<ul>
+<li>Onde</li>
+</ul>
+<div style="font-size: 80%;">
+<p><span class="math display">\[\begin{align}
+R_{1t}&amp;= \lambda_t \left(\lambda^{{P}^T} \lambda^P \right)^{-1}\\
+R_{2t}&amp;= -\lambda_t \left(\lambda^{{P}^T} \lambda^P \right)^{-1} \lambda^{{P}^T}  \varepsilon_1^P\\
+R_{1t}&amp;= \left( \varepsilon_1^P-\sum_{j=2}^{J+2} W_j \varepsilon_j^P \right)\\
+\end{align}\]</span></p>
+</div>
 </section>
 <section id="modelo-7" class="slide level2">
 <h2>Modelo</h2>
 <ul>
-<li class="fragment">Assim, o ajuste do contrafactual pode ser reduzido a</li>
+<li>Considere que <span class="math inline">\(E(R_{2t})=E(R_{3t})=0, \forall t &gt; T_0\)</span></li>
+<li>E para <span class="math inline">\(R_{1t}\)</span> mostra-se que:</li>
 </ul>
-<p><span class="math display">\[Y_{1j}^N-\sum W_j^* Y_{jt}^N=R_{1t}+R_{2t}+R_{3t}\]</span> - Onde</p>
-<p><span class="math display">\[R_{1t}= \lambda_t \left(\lambda^{{P}^T} \lambda^P \right)^{-1} \lambda^{{P}^T} \sum W_j^* \varepsilon_j^P,\]</span></p>
-<p><span class="math display">\[R_{2t}= -\lambda_t \left(\lambda^{{P}^T} \lambda^P \right)^{-1} \lambda^{{P}^T}  \varepsilon_1^P,\]</span> <span class="math display">\[R_{1t}= \left( \varepsilon_1^P-\sum_{j=2}^{J+2} W_j \varepsilon_j^P \right)\]</span></p>
+<div style="font-size: 70%;">
+<p><span id="eq-6"><span class="math display">\[
+E|R_{1t}| \leq C(p)^{\frac{1}{p}}\left( \frac{\bar{\lambda}^2F}{\xi}\right)J^{\frac{1}{p}}max \left\{ \frac{(\bar{m}_p)^{\frac{1}{p}}}{T_0^{1-\frac{1}{p}}},\frac{\bar{\sigma}}{\sqrt{T_0}}  \right\}
+\qquad(6)\]</span></span></p>
+</div>
+<ul>
+<li>em que
+<ul>
+<li><span class="math inline">\(C(p)\)</span> é o p-ésimo momento central de <span class="math inline">\((X-1)\)</span>, sendo <span class="math inline">\(X \sim Poisson(1)\)</span></li>
+<li><span class="math inline">\(\left( \frac{\bar{\lambda}^2F}{\xi}\right)\)</span> é o limite inferior dos autovalores de <span class="math inline">\(\frac{1}{M}\sum \lambda_t^T \lambda_t\)</span></li>
+<li><span class="math inline">\(\bar{m}_p\)</span> é a média do p-ésimo momento de <span class="math inline">\(\varepsilon_{jt}\)</span></li>
+<li><span class="math inline">\(\bar{\sigma}\)</span> é o <span class="math inline">\(max(\sigma_j^2)\)</span>, em que <span class="math inline">\(\sigma_j^2=E|\varepsilon_{jt}|^2\)</span>.</li>
+<li>para mais detalhes ver <strong>Appendix B</strong> de <a href="https://www.tandfonline.com/doi/epdf/10.1198/jasa.2009.ap08746?needAccess=true">Alberto et. al.&nbsp;2010</a></li>
+</ul></li>
+</ul>
 </section>
 <section id="modelo-8" class="slide level2">
 <h2>Modelo</h2>
 <ul>
-<li class="fragment"><p>Considere que <span class="math inline">\(E(R_{2t})=E(R_{3t})=0, \forall t &gt; T_0\)</span></p></li>
-<li class="fragment"><p>E para <span class="math inline">\(R_{1t}\)</span> mostra-se que: <span class="math display">\[E|R_{1t}| \leq C(p)^{\frac{1}{p}}\left( \frac{\bar{\lambda}^2F}{\xi}\right)J^{\frac{1}{p}}max \left\{ \frac{(\bar{m}_p)^{\frac{1}{p}}}{T_0^{1-\frac{1}{p}}},\frac{\bar{\sigma}}{\sqrt{T_0}}  \right\}\]</span></p></li>
-<li class="fragment"><p>em que</p>
-<ul>
-<li class="fragment"><span class="math inline">\(C(p)\)</span> é o p-ésimo momento central (menos 1) de uma variável aleatória Poisson com <span class="math inline">\(\lambda=1\)</span></li>
-<li class="fragment"><span class="math inline">\(\left( \frac{\bar{\lambda}^2F}{\xi}\right)\)</span> é o limite inferior dos autovalores de <span class="math inline">\(\frac{1}{M}\sum \lambda_t^T \lambda_t\)</span></li>
-<li class="fragment"><span class="math inline">\(\bar{m}_p\)</span> é a média do p-ésimo momento de <span class="math inline">\(\varepsilon_{jt}\)</span></li>
-<li class="fragment"><span class="math inline">\(\bar{\sigma}\)</span> é o <span class="math inline">\(max(\sigma_j^2\)</span>, em que <span class="math inline">\(\sigma_j^2=E(\varepsilon_{jt}^2)\)</span>.</li>
-</ul></li>
+<li><p>A <a href="#/modelo-7" class="quarto-xref">Equation&nbsp;6</a> implica que o viés do estimador <span class="math inline">\(E(R_{1t})\)</span> pode ser limitado por uma função que vai para zero à medida que o número de períodos (<span class="math inline">\(T_0\)</span>) de pré-tratamento aumenta.</p></li>
+<li><p>Conforme <span class="math inline">\(T_0\)</span> cresce, o matching nos resultados pré-intervenção ajuda a controlar fatores não-observados e a heterogeneidade dos efeitos observados sobre <span class="math inline">\(Y\)</span>.</p></li>
+<li><p>As unidades parecidas nos determinantes observados e não observados de <span class="math inline">\(Y\)</span> devem produzir trajetórias similares às de <span class="math inline">\(Y\)</span> em instantes posteriores a <span class="math inline">\(T_0\)</span>. A diferença entre as trajetórias em <span class="math inline">\(t&gt; T_0\)</span> é efeito da intervenção</p></li>
 </ul>
+<p><span class="math display">\[\hat{\alpha_{1t}}=Y_{1t}-\sum_{j+2}^{J+1}W_j^* Y_{jt} ~ t \in \{ T_0+1, T_0+2,...,T\}\]</span></p>
 </section>
 <section id="modelo-9" class="slide level2">
 <h2>Modelo</h2>
 <ul>
-<li class="fragment"><p>A última equação implica que o viés do estimador (<span class="math inline">\(E(R_{1t})\)</span>) pode ser limitado por uma função que vai para zero à medida que o número de períodos (<span class="math inline">\(T_0\)</span>) de pré-tratamento aumenta.</p></li>
-<li class="fragment"><p>conforme <span class="math inline">\(T_0\)</span> cresce, o matching nos resultados pré-intervenção ajuda a controlar fatores não-observados e heterogeneidade dos efeitos observados sobre <span class="math inline">\(Y\)</span>.</p></li>
-<li class="fragment"><p>As unidades parecidas nos determinantes observados e não observados de <span class="math inline">\(Y\)</span> deben producir trajetórias similares ás de <span class="math inline">\(Y\)</span> em instantes posteriores a <span class="math inline">\(T_0\)</span>. A diferença entre as trajectórias em <span class="math inline">\(t&gt; T_0\)</span> é o efeito da intervenção</p></li>
-</ul>
-<p><span class="math display">\[\hat{\alpha_{1t}}=Y_{1t}-\sum_{j+2}^{J+1}W_j^* Y_{jt} ~ t \in \{ T_0+1, T_0+2,...,T\}\]</span></p>
-</section>
-<section id="modelo-10" class="slide level2">
-<h2>Modelo</h2>
-<ul>
-<li class="fragment"><p>As condições para <span class="math inline">\(W*\)</span> esablecidas valem na igualdade se <span class="math inline">\((Y_{11}, Y_{12},...,Y_{1T_0}, Z_1^T)\)</span></p>
+<li><p>As condições para <span class="math inline">\(W*\)</span> esablecidas valem na igualdade se <span class="math inline">\((Y_{11}, Y_{12},...,Y_{1T_0}, Z_1^T)\)</span></p>
 <p>pertence ao cone convexo gerado por <span class="math inline">\({(Y_{21}, Y_{22},...,Y_{2T_0}, Z_2^T),..., (Y_{(J+1)1},(Y_{(J+1)2},...,Y_{(J+1)T_0}, Z_{(J+1)}^T)}\)</span></p></li>
-<li class="fragment"><p>O soporte debe ser parecido</p></li>
-<li class="fragment"><p><span class="math inline">\(W^*\)</span> satisfaz as condições aproximadamente</p></li>
-<li class="fragment"><p>viés de interpolação entre regiões com características diferentes</p></li>
+<li><p>O suporte deve ser parecido</p></li>
+<li><p><span class="math inline">\(W^*\)</span> satisfaz as condições aproximadamente</p></li>
+<li><p>viés de interpolação entre regiões com características diferentes</p></li>
 </ul>
 </section></section>
 <section>
@@ -506,19 +593,345 @@
 <h1>Controle Sintético: Implementação</h1>
 
 </section>
-<section class="slide level2">
+<section id="implementação-das-funções" class="slide level2">
+<h2>Implementação das funções</h2>
+<p>Busca-se <span class="math inline">\(W^*\)</span> que minimize <span class="math inline">\(\lVert X_1 - X_0W \rVert\)</span>. Para isso, minimizamos a função:</p>
+<p><span class="math display">\[\lVert X_1 - X_0W \rVert = \sqrt{(X_1 - X_0W)'V(X_1 - X_0W)}\]</span></p>
+<p>A matriz simétrica e semipositiva definida <span class="math inline">\(V\)</span> é encontrada de forma a minimizar:</p>
+<p><span class="math display">\[
+arg min_{V\in\mathcal{V}}(Z_1 - Z_0W^*(V))'(Z_1 - Z_0W^*(V))
+\]</span> onde <span class="math inline">\(\mathcal{V}\)</span> é o conjunto com todas as matrizes diagonais positivas definidas. ()</p>
+</section>
+<section id="implementação-das-funções-1" class="slide level2">
+<h2>Implementação das funções</h2>
+<p>A função para obtenção de <span class="math inline">\(V\)</span> é dada por:</p>
+<div class="cell" data-layout-align="center">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>func.V <span class="ot">&lt;-</span> <span class="cf">function</span>(SV1, X0, X1, Z0, Z1) {</span>
+<span id="cb1-2"><a></a>  V <span class="ot">&lt;-</span> <span class="fu">diag</span>(<span class="at">x =</span> <span class="fu">as.numeric</span>(<span class="fu">abs</span>(SV1)<span class="sc">/</span><span class="fu">sum</span>(<span class="fu">abs</span>(SV1))), </span>
+<span id="cb1-3"><a></a>            <span class="at">nrow =</span> <span class="fu">length</span>(SV1), <span class="at">ncol =</span> <span class="fu">length</span>(SV1))</span>
+<span id="cb1-4"><a></a>  H <span class="ot">&lt;-</span> <span class="fu">t</span>(X0) <span class="sc">%*%</span> V <span class="sc">%*%</span> X0</span>
+<span id="cb1-5"><a></a>  c <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">1</span> <span class="sc">*</span> <span class="fu">c</span>(<span class="fu">t</span>(X1) <span class="sc">%*%</span> V <span class="sc">%*%</span> X0)</span>
+<span id="cb1-6"><a></a>  A <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="fu">length</span>(c)))</span>
+<span id="cb1-7"><a></a>  b <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb1-8"><a></a>  l <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="fu">length</span>(c))</span>
+<span id="cb1-9"><a></a>  u <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span>, <span class="fu">length</span>(c))</span>
+<span id="cb1-10"><a></a>  r <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb1-11"><a></a>  </span>
+<span id="cb1-12"><a></a>  res <span class="ot">&lt;-</span> <span class="fu">ipop</span>(<span class="at">c =</span> c, <span class="at">H =</span> H, <span class="at">A =</span> A, <span class="at">b =</span> b, <span class="at">l =</span> l, <span class="at">u =</span> u, <span class="at">r =</span> r)</span>
+<span id="cb1-13"><a></a>  W <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(<span class="fu">primal</span>(res))</span>
+<span id="cb1-14"><a></a>  sol.V <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">t</span>(Z1 <span class="sc">-</span> Z0 <span class="sc">%*%</span> W) <span class="sc">%*%</span> (Z1 <span class="sc">-</span> Z0 <span class="sc">%*%</span> W))</span>
+<span id="cb1-15"><a></a>  <span class="fu">return</span>(sol.V)</span>
+<span id="cb1-16"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>E a função para obtenção dos controles sintéticos é dada por</p>
+<div class="cell" data-layout-align="center">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>syntetic.control <span class="ot">&lt;-</span> <span class="cf">function</span>(X0, X1, Z0, Z1) {</span>
+<span id="cb2-2"><a></a>  big.dataframe <span class="ot">&lt;-</span> <span class="fu">cbind</span>(X0, X1)</span>
+<span id="cb2-3"><a></a>  divisor <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">apply</span>(big.dataframe, <span class="dv">1</span>, var))</span>
+<span id="cb2-4"><a></a>  scaled.matrix <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">t</span>(big.dataframe) <span class="sc">%*%</span> </span>
+<span id="cb2-5"><a></a>                       (<span class="dv">1</span><span class="sc">/</span>(divisor) <span class="sc">*</span> <span class="fu">diag</span>(<span class="fu">rep</span>(<span class="fu">dim</span>(big.dataframe)[<span class="dv">1</span>], <span class="dv">1</span>))))</span>
+<span id="cb2-6"><a></a>  X0 <span class="ot">&lt;-</span> scaled.matrix[, <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span>(<span class="fu">dim</span>(X0)[<span class="dv">2</span>]))]</span>
+<span id="cb2-7"><a></a>  X1 <span class="ot">&lt;-</span> scaled.matrix[, <span class="fu">dim</span>(scaled.matrix)[<span class="dv">2</span>]]</span>
+<span id="cb2-8"><a></a>  SV1 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">/</span><span class="fu">dim</span>(X0)[<span class="dv">1</span>], <span class="fu">dim</span>(X0)[<span class="dv">1</span>])</span>
+<span id="cb2-9"><a></a>  V.optim <span class="ot">&lt;-</span> optimx<span class="sc">::</span><span class="fu">optimx</span>(<span class="at">par =</span> SV1, <span class="at">fn =</span> func.V,</span>
+<span id="cb2-10"><a></a>                            <span class="at">X0 =</span> X0, <span class="at">X1 =</span> X1, <span class="at">Z0 =</span> Z0, <span class="at">Z1 =</span> Z1)</span>
+<span id="cb2-11"><a></a>  V.optim <span class="ot">&lt;-</span> <span class="fu">collect.optimx</span>(V.optim, <span class="st">"min"</span>)</span>
+<span id="cb2-12"><a></a>  solution.v <span class="ot">&lt;-</span> <span class="fu">abs</span>(V.optim<span class="sc">$</span>par)<span class="sc">/</span><span class="fu">sum</span>(<span class="fu">abs</span>(V.optim<span class="sc">$</span>par))</span>
+<span id="cb2-13"><a></a>  </span>
+<span id="cb2-14"><a></a>  V <span class="ot">&lt;-</span> <span class="fu">diag</span>(<span class="at">x =</span> <span class="fu">as.numeric</span>(solution.v), <span class="at">nrow =</span> <span class="fu">dim</span>(X0)[<span class="dv">1</span>], <span class="at">ncol =</span> <span class="fu">dim</span>(X0)[<span class="dv">1</span>])</span>
+<span id="cb2-15"><a></a>  H <span class="ot">&lt;-</span> <span class="fu">t</span>(X0) <span class="sc">%*%</span> V <span class="sc">%*%</span> (X0)</span>
+<span id="cb2-16"><a></a>  c <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">1</span> <span class="sc">*</span> <span class="fu">c</span>(<span class="fu">t</span>(X1) <span class="sc">%*%</span> V <span class="sc">%*%</span> (X0))</span>
+<span id="cb2-17"><a></a>  A <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="fu">length</span>(c)))</span>
+<span id="cb2-18"><a></a>  b <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb2-19"><a></a>  l <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="fu">length</span>(c))</span>
+<span id="cb2-20"><a></a>  u <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span>, <span class="fu">length</span>(c))</span>
+<span id="cb2-21"><a></a>  r <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb2-22"><a></a>  </span>
+<span id="cb2-23"><a></a>  res <span class="ot">&lt;-</span> <span class="fu">ipop</span>(<span class="at">c =</span> c, <span class="at">H =</span> H, <span class="at">A =</span> A, <span class="at">b =</span> b, <span class="at">l =</span> l, <span class="at">u =</span> u, <span class="at">r =</span> r)</span>
+<span id="cb2-24"><a></a>  solution.w <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(<span class="fu">primal</span>(res))</span>
+<span id="cb2-25"><a></a>  </span>
+<span id="cb2-26"><a></a>  resultado <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">solution.v =</span> <span class="fu">as.numeric</span>(solution.v), <span class="at">solution.w =</span> solution.w)</span>
+<span id="cb2-27"><a></a>  <span class="fu">return</span>(resultado)</span>
+<span id="cb2-28"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><strong>observação:</strong> ambas as funções foram baseadas em funções já implementadas no pacote <code>Synth</code>.</p>
+</section>
+<section id="exemplo-em-um-conjunto-de-dados" class="slide level2">
+<h2>Exemplo em um conjunto de dados</h2>
+<p>Carregamos o conjunto de dados <code>Synth</code>, originário de Abadie et. al.&nbsp;2003</p>
+<div class="cell" data-layout-align="center">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(Synth)</span>
+<span id="cb3-2"><a></a><span class="fu">data</span>(basque)</span>
+<span id="cb3-3"><a></a><span class="fu">glimpse</span>(basque)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 774
+Columns: 17
+$ regionno              &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …
+$ regionname            &lt;chr&gt; "Spain (Espana)", "Spain (Espana)", "Spain (Espa…
+$ year                  &lt;dbl&gt; 1955, 1956, 1957, 1958, 1959, 1960, 1961, 1962, …
+$ gdpcap                &lt;dbl&gt; 2.354542, 2.480149, 2.603613, 2.637104, 2.669880…
+$ sec.agriculture       &lt;dbl&gt; NA, NA, NA, NA, NA, NA, 19.54, NA, 19.05, NA, 16…
+$ sec.energy            &lt;dbl&gt; NA, NA, NA, NA, NA, NA, 4.71, NA, 4.31, NA, 4.31…
+$ sec.industry          &lt;dbl&gt; NA, NA, NA, NA, NA, NA, 26.42, NA, 26.05, NA, 27…
+$ sec.construction      &lt;dbl&gt; NA, NA, NA, NA, NA, NA, 6.27, NA, 6.83, NA, 7.64…
+$ sec.services.venta    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, 36.62, NA, 38.00, NA, 38…
+$ sec.services.nonventa &lt;dbl&gt; NA, NA, NA, NA, NA, NA, 6.44, NA, 5.77, NA, 6.48…
+$ school.illit          &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, 2863.278, 28…
+$ school.prim           &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, 18679.10, 18…
+$ school.med            &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, 1064.246, 11…
+$ school.high           &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, 359.7457, 37…
+$ school.post.high      &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, 212.1434, 21…
+$ popdens               &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+$ invest                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, 18.36018, 20…</code></pre>
+</div>
+</div>
+</section>
+<section id="estimando-os-pesos" class="slide level2">
+<h2>Estimando os pesos</h2>
+<p>Primeiro, preparamos os dados para obtermos <span class="math inline">\(X_1,X_0,Z_1,Z_0\)</span>.</p>
+<div class="cell" data-layout-align="center">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>pais <span class="ot">&lt;-</span> <span class="st">"Basque Country (Pais Vasco)"</span></span>
+<span id="cb5-2"><a></a>covariaveis <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"school.illit"</span>, <span class="st">"school.prim"</span>, <span class="st">"school.med"</span>,</span>
+<span id="cb5-3"><a></a>                 <span class="st">"school.high"</span>, <span class="st">"school.post.high"</span>, <span class="st">"invest"</span>,</span>
+<span id="cb5-4"><a></a>                 <span class="st">"gdpcap"</span>, <span class="st">"sec.agriculture"</span>, <span class="st">"sec.energy"</span>, <span class="st">"sec.industry"</span>,</span>
+<span id="cb5-5"><a></a>                 <span class="st">"sec.construction"</span>, <span class="st">"sec.services.venta"</span>,</span>
+<span id="cb5-6"><a></a>                 <span class="st">"sec.services.nonventa"</span>, <span class="st">"popdens"</span>)</span>
+<span id="cb5-7"><a></a>T0 <span class="ot">&lt;-</span> <span class="dv">1964</span><span class="sc">:</span><span class="dv">1969</span></span>
+<span id="cb5-8"><a></a>tempo <span class="ot">&lt;-</span> <span class="dv">1960</span><span class="sc">:</span><span class="dv">1997</span></span>
+<span id="cb5-9"><a></a></span>
+<span id="cb5-10"><a></a></span>
+<span id="cb5-11"><a></a>data.x1 <span class="ot">&lt;-</span> basque[basque<span class="sc">$</span>regionname <span class="sc">==</span> pais <span class="sc">&amp;</span> basque<span class="sc">$</span>year <span class="sc">%in%</span> T0,]</span>
+<span id="cb5-12"><a></a>X1 <span class="ot">&lt;-</span> <span class="fu">apply</span>(data.x1[covariaveis], <span class="dv">2</span>, mean, <span class="at">na.rm =</span> T)</span>
+<span id="cb5-13"><a></a>dados <span class="ot">&lt;-</span> basque[basque<span class="sc">$</span>regionno <span class="sc">!=</span> <span class="dv">1</span>,]</span>
+<span id="cb5-14"><a></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">regionname =</span> <span class="fu">unique</span>(dados<span class="sc">$</span>regionname))</span>
+<span id="cb5-15"><a></a></span>
+<span id="cb5-16"><a></a><span class="cf">for</span> (i <span class="cf">in</span> covariaveis) {</span>
+<span id="cb5-17"><a></a>  expressao <span class="ot">&lt;-</span> <span class="fu">paste</span>(i, <span class="st">"regionname"</span>, <span class="at">sep =</span> <span class="st">" ~ "</span>)</span>
+<span id="cb5-18"><a></a>  df[i] <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(<span class="fu">as.formula</span>(expressao), </span>
+<span id="cb5-19"><a></a>                     <span class="at">data=</span>dados[dados<span class="sc">$</span>year <span class="sc">%in%</span> T0,</span>
+<span id="cb5-20"><a></a>                                <span class="fu">c</span>(i, <span class="st">"regionname"</span>)],</span>
+<span id="cb5-21"><a></a>                     <span class="at">FUN =</span> mean)[<span class="dv">2</span>]</span>
+<span id="cb5-22"><a></a>  </span>
+<span id="cb5-23"><a></a>}</span>
+<span id="cb5-24"><a></a></span>
+<span id="cb5-25"><a></a>df <span class="ot">&lt;-</span> df[<span class="sc">-</span><span class="dv">16</span>,]</span>
+<span id="cb5-26"><a></a><span class="fu">colnames</span>(df) <span class="ot">&lt;-</span> <span class="fu">names</span>(df)</span>
+<span id="cb5-27"><a></a><span class="fu">rownames</span>(df) <span class="ot">&lt;-</span> df<span class="sc">$</span>regionname</span>
+<span id="cb5-28"><a></a>df <span class="ot">&lt;-</span> df[<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb5-29"><a></a>X0 <span class="ot">&lt;-</span> <span class="fu">t</span>(df)</span>
+<span id="cb5-30"><a></a></span>
+<span id="cb5-31"><a></a>Z1 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(dados<span class="sc">$</span>gdpcap[dados<span class="sc">$</span>regionname <span class="sc">==</span> pais <span class="sc">&amp;</span> </span>
+<span id="cb5-32"><a></a>                            dados<span class="sc">$</span>year <span class="sc">%in%</span> tempo], <span class="at">ncol =</span> <span class="dv">1</span>)</span>
+<span id="cb5-33"><a></a><span class="fu">rownames</span>(Z1) <span class="ot">&lt;-</span> tempo ; <span class="fu">colnames</span>(Z1) <span class="ot">&lt;-</span> pais</span>
+<span id="cb5-34"><a></a></span>
+<span id="cb5-35"><a></a>Z0 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(dados<span class="sc">$</span>gdpcap[<span class="sc">!</span>(dados<span class="sc">$</span>regionname <span class="sc">==</span> pais) <span class="sc">&amp;</span> dados<span class="sc">$</span>year <span class="sc">%in%</span> tempo], <span class="at">ncol =</span> <span class="fu">length</span>(<span class="fu">unique</span>(dados<span class="sc">$</span>regionname)) <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb5-36"><a></a><span class="fu">rownames</span>(Z0) <span class="ot">&lt;-</span> tempo ; <span class="fu">colnames</span>(Z0) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">16</span>, <span class="dv">18</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Depois, calculamos <span class="math inline">\(W\)</span> da forma:</p>
+<div class="cell" data-layout-align="center">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">library</span>(kernlab)</span>
+<span id="cb6-2"><a></a>synth.out <span class="ot">&lt;-</span> <span class="fu">syntetic.control</span>(X0, X1, Z0, Z1)</span>
+<span id="cb6-3"><a></a>synth.out</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>$solution.v
+ [1] 6.762763e-02 9.367840e-02 1.756102e-02 5.683544e-02 7.808675e-02
+ [6] 3.522110e-01 1.127614e-02 1.810755e-04 8.816527e-02 6.537826e-05
+[11] 1.003965e-01 9.710417e-02 2.531460e-02 1.149661e-02
 
+$solution.w
+              [,1]
+ [1,] 7.957523e-05
+ [2,] 1.224675e-04
+ [3,] 9.935210e-05
+ [4,] 9.967353e-01
+ [5,] 8.578474e-05
+ [6,] 1.311373e-03
+ [7,] 1.303419e-04
+ [8,] 1.351296e-04
+ [9,] 3.644127e-04
+[10,] 1.868836e-04
+[11,] 8.486251e-05
+[12,] 1.264534e-04
+[13,] 9.960381e-05
+[14,] 1.267570e-04
+[15,] 1.396864e-04
+[16,] 1.720640e-04</code></pre>
+</div>
+</div>
+</section>
+<section id="resultado" class="slide level2">
+<h2>Resultado</h2>
+<div class="cell" data-layout-align="center">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>dataprep.out <span class="ot">&lt;-</span> <span class="fu">dataprep</span>(</span>
+<span id="cb8-2"><a></a>  <span class="at">foo =</span> basque,</span>
+<span id="cb8-3"><a></a>  <span class="at">predictors =</span> <span class="fu">c</span>(<span class="st">"school.illit"</span>, <span class="st">"school.prim"</span>, <span class="st">"school.med"</span>,</span>
+<span id="cb8-4"><a></a>                  <span class="st">"school.high"</span>, <span class="st">"school.post.high"</span>, <span class="st">"invest"</span>),</span>
+<span id="cb8-5"><a></a>  <span class="at">predictors.op =</span> <span class="st">"mean"</span>,</span>
+<span id="cb8-6"><a></a>  <span class="at">time.predictors.prior =</span> <span class="dv">1964</span><span class="sc">:</span><span class="dv">1969</span>,</span>
+<span id="cb8-7"><a></a>  <span class="at">special.predictors =</span> <span class="fu">list</span>(</span>
+<span id="cb8-8"><a></a>    <span class="fu">list</span>(<span class="st">"gdpcap"</span>, <span class="dv">1960</span><span class="sc">:</span><span class="dv">1969</span>, <span class="st">"mean"</span>),</span>
+<span id="cb8-9"><a></a>    <span class="fu">list</span>(<span class="st">"sec.agriculture"</span>, <span class="fu">seq</span>(<span class="dv">1961</span>, <span class="dv">1969</span>, <span class="dv">2</span>), <span class="st">"mean"</span>),</span>
+<span id="cb8-10"><a></a>    <span class="fu">list</span>(<span class="st">"sec.energy"</span>, <span class="fu">seq</span>(<span class="dv">1961</span>, <span class="dv">1969</span>, <span class="dv">2</span>), <span class="st">"mean"</span>),</span>
+<span id="cb8-11"><a></a>    <span class="fu">list</span>(<span class="st">"sec.industry"</span>, <span class="fu">seq</span>(<span class="dv">1961</span>, <span class="dv">1969</span>, <span class="dv">2</span>), <span class="st">"mean"</span>),</span>
+<span id="cb8-12"><a></a>    <span class="fu">list</span>(<span class="st">"sec.construction"</span>, <span class="fu">seq</span>(<span class="dv">1961</span>, <span class="dv">1969</span>, <span class="dv">2</span>), <span class="st">"mean"</span>),</span>
+<span id="cb8-13"><a></a>    <span class="fu">list</span>(<span class="st">"sec.services.venta"</span>, <span class="fu">seq</span>(<span class="dv">1961</span>, <span class="dv">1969</span>, <span class="dv">2</span>), <span class="st">"mean"</span>),</span>
+<span id="cb8-14"><a></a>    <span class="fu">list</span>(<span class="st">"sec.services.nonventa"</span>, <span class="fu">seq</span>(<span class="dv">1961</span>, <span class="dv">1969</span>, <span class="dv">2</span>), <span class="st">"mean"</span>),</span>
+<span id="cb8-15"><a></a>    <span class="fu">list</span>(<span class="st">"popdens"</span>, <span class="dv">1969</span>, <span class="st">"mean"</span>)),</span>
+<span id="cb8-16"><a></a>  <span class="at">dependent =</span> <span class="st">"gdpcap"</span>,</span>
+<span id="cb8-17"><a></a>  <span class="at">unit.variable =</span> <span class="st">"regionno"</span>,</span>
+<span id="cb8-18"><a></a>  <span class="at">unit.names.variable =</span> <span class="st">"regionname"</span>,</span>
+<span id="cb8-19"><a></a>  <span class="at">time.variable =</span> <span class="st">"year"</span>,</span>
+<span id="cb8-20"><a></a>  <span class="at">treatment.identifier =</span> <span class="dv">17</span>,</span>
+<span id="cb8-21"><a></a>  <span class="at">controls.identifier =</span> <span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">16</span>, <span class="dv">18</span>),</span>
+<span id="cb8-22"><a></a>  <span class="at">time.optimize.ssr =</span> <span class="dv">1960</span><span class="sc">:</span><span class="dv">1969</span>,</span>
+<span id="cb8-23"><a></a>  <span class="at">time.plot =</span> <span class="dv">1955</span><span class="sc">:</span><span class="dv">1997</span>)</span>
+<span id="cb8-24"><a></a></span>
+<span id="cb8-25"><a></a><span class="fu">path.plot</span>(<span class="at">synth.res =</span> synth.out, <span class="at">dataprep.res =</span> dataprep.out,</span>
+<span id="cb8-26"><a></a>          <span class="at">Ylab =</span> <span class="st">"PIB per capita (milhares de dólares, 1986)"</span>, <span class="at">Xlab =</span> <span class="st">"Ano"</span>,</span>
+<span id="cb8-27"><a></a>          <span class="at">Ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">12</span>), <span class="at">Legend =</span> <span class="fu">c</span>(<span class="st">"País Basco"</span>,</span>
+<span id="cb8-28"><a></a>                                       <span class="st">"País Basco sintético"</span>), <span class="at">Legend.position =</span> <span class="st">"bottomright"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+
+</div>
+<img data-src="Slide_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<section id="placebo" class="slide level2">
+<h2>Placebo</h2>
+<div class="cell" data-layout-align="center">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>dataprep.out <span class="ot">&lt;-</span> <span class="fu">dataprep</span>(</span>
+<span id="cb9-2"><a></a>  <span class="at">foo =</span> basque,</span>
+<span id="cb9-3"><a></a>  <span class="at">predictors =</span> <span class="fu">c</span>(</span>
+<span id="cb9-4"><a></a>    <span class="st">"school.illit"</span>,</span>
+<span id="cb9-5"><a></a>    <span class="st">"school.prim"</span>,</span>
+<span id="cb9-6"><a></a>    <span class="st">"school.med"</span>,</span>
+<span id="cb9-7"><a></a>    <span class="st">"school.high"</span>,</span>
+<span id="cb9-8"><a></a>    <span class="st">"school.post.high"</span>,</span>
+<span id="cb9-9"><a></a>    <span class="st">"invest"</span></span>
+<span id="cb9-10"><a></a>  ),</span>
+<span id="cb9-11"><a></a>  <span class="at">predictors.op =</span> <span class="st">"mean"</span>,</span>
+<span id="cb9-12"><a></a>  <span class="at">time.predictors.prior =</span> <span class="dv">1964</span><span class="sc">:</span><span class="dv">1969</span>,</span>
+<span id="cb9-13"><a></a>  <span class="at">special.predictors =</span> <span class="fu">list</span>(</span>
+<span id="cb9-14"><a></a>    <span class="fu">list</span>(<span class="st">"gdpcap"</span>, <span class="dv">1960</span><span class="sc">:</span><span class="dv">1969</span>, <span class="st">"mean"</span>),</span>
+<span id="cb9-15"><a></a>    <span class="fu">list</span>(<span class="st">"sec.agriculture"</span>, <span class="fu">seq</span>(<span class="dv">1961</span>, <span class="dv">1969</span>, <span class="dv">2</span>), <span class="st">"mean"</span>),</span>
+<span id="cb9-16"><a></a>    <span class="fu">list</span>(<span class="st">"sec.energy"</span>, <span class="fu">seq</span>(<span class="dv">1961</span>, <span class="dv">1969</span>, <span class="dv">2</span>), <span class="st">"mean"</span>),</span>
+<span id="cb9-17"><a></a>    <span class="fu">list</span>(<span class="st">"sec.industry"</span>, <span class="fu">seq</span>(<span class="dv">1961</span>, <span class="dv">1969</span>, <span class="dv">2</span>), <span class="st">"mean"</span>),</span>
+<span id="cb9-18"><a></a>    <span class="fu">list</span>(<span class="st">"sec.construction"</span>, <span class="fu">seq</span>(<span class="dv">1961</span>, <span class="dv">1969</span>, <span class="dv">2</span>), <span class="st">"mean"</span>),</span>
+<span id="cb9-19"><a></a>    <span class="fu">list</span>(<span class="st">"sec.services.venta"</span>, <span class="fu">seq</span>(<span class="dv">1961</span>, <span class="dv">1969</span>, <span class="dv">2</span>), <span class="st">"mean"</span>),</span>
+<span id="cb9-20"><a></a>    <span class="fu">list</span>(<span class="st">"sec.services.nonventa"</span>, <span class="fu">seq</span>(<span class="dv">1961</span>, <span class="dv">1969</span>, <span class="dv">2</span>), <span class="st">"mean"</span>),</span>
+<span id="cb9-21"><a></a>    <span class="fu">list</span>(<span class="st">"popdens"</span>, <span class="dv">1969</span>, <span class="st">"mean"</span>)</span>
+<span id="cb9-22"><a></a>  ),</span>
+<span id="cb9-23"><a></a>  <span class="at">dependent =</span> <span class="st">"gdpcap"</span>,</span>
+<span id="cb9-24"><a></a>  <span class="at">unit.variable =</span> <span class="st">"regionno"</span>,</span>
+<span id="cb9-25"><a></a>  <span class="at">unit.names.variable =</span> <span class="st">"regionname"</span>,</span>
+<span id="cb9-26"><a></a>  <span class="at">time.variable =</span> <span class="st">"year"</span>,</span>
+<span id="cb9-27"><a></a>  <span class="at">treatment.identifier =</span> <span class="dv">10</span>,</span>
+<span id="cb9-28"><a></a>  <span class="at">controls.identifier =</span> <span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">9</span>, <span class="dv">11</span><span class="sc">:</span><span class="dv">16</span>, <span class="dv">18</span>),</span>
+<span id="cb9-29"><a></a>  <span class="at">time.optimize.ssr =</span> <span class="dv">1960</span><span class="sc">:</span><span class="dv">1969</span>,</span>
+<span id="cb9-30"><a></a>  <span class="at">time.plot =</span> <span class="dv">1955</span><span class="sc">:</span><span class="dv">1997</span></span>
+<span id="cb9-31"><a></a>)</span>
+<span id="cb9-32"><a></a></span>
+<span id="cb9-33"><a></a></span>
+<span id="cb9-34"><a></a><span class="fu">plot</span>(</span>
+<span id="cb9-35"><a></a>  dataprep.out<span class="sc">$</span>tag<span class="sc">$</span>time.plot,</span>
+<span id="cb9-36"><a></a>  dataprep.out<span class="sc">$</span>Y1plot,</span>
+<span id="cb9-37"><a></a>  <span class="at">t =</span> <span class="st">"l"</span>,</span>
+<span id="cb9-38"><a></a>  <span class="at">col =</span> <span class="st">"black"</span>,</span>
+<span id="cb9-39"><a></a>  <span class="at">lwd =</span> <span class="dv">2</span>,</span>
+<span id="cb9-40"><a></a>  <span class="at">ylab =</span> <span class="st">"PIB per capita (milhares de dólares, 1986)"</span>,</span>
+<span id="cb9-41"><a></a>  <span class="at">xlab =</span> <span class="st">"Ano"</span>,</span>
+<span id="cb9-42"><a></a>  <span class="at">xaxs =</span> <span class="st">"i"</span>,</span>
+<span id="cb9-43"><a></a>  <span class="at">yaxs =</span> <span class="st">"i"</span>,</span>
+<span id="cb9-44"><a></a>  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">12</span>),</span>
+<span id="cb9-45"><a></a>  </span>
+<span id="cb9-46"><a></a>)</span>
+<span id="cb9-47"><a></a><span class="fu">lines</span>(</span>
+<span id="cb9-48"><a></a>  dataprep.out<span class="sc">$</span>tag<span class="sc">$</span>time.plot,</span>
+<span id="cb9-49"><a></a>  dataprep.out<span class="sc">$</span>Y0plot <span class="sc">%*%</span> synth.out<span class="sc">$</span>solution.w[<span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">9</span>,<span class="dv">11</span><span class="sc">:</span><span class="dv">16</span>,<span class="dv">18</span>)],</span>
+<span id="cb9-50"><a></a>  <span class="at">col =</span> <span class="st">"black"</span>,</span>
+<span id="cb9-51"><a></a>  <span class="at">lty =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb9-52"><a></a>  <span class="at">lwd =</span> <span class="dv">2</span>,</span>
+<span id="cb9-53"><a></a>  <span class="at">cex =</span> <span class="dv">4</span> <span class="sc">/</span> <span class="dv">5</span></span>
+<span id="cb9-54"><a></a>)</span>
+<span id="cb9-55"><a></a></span>
+<span id="cb9-56"><a></a><span class="fu">legend</span>(<span class="st">"bottomright"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Catalunha"</span>, <span class="st">"Catalunha sintética"</span>), <span class="at">lty =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, </span>
+<span id="cb9-57"><a></a>      <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"black"</span>), <span class="at">lwd =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="at">cex =</span> <span class="dv">6</span><span class="sc">/</span><span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+
+</div>
+<img data-src="Slide_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<section id="referencias" class="slide level2">
+<h2>Referencias</h2>
+<ul>
+<li><p>Abadie, A., Diamond, A., &amp; Hainmueller, J. (2010). Synthetic control methods for comparative case studies: Estimating the effect of California’s tobacco control program. Journal of the American statistical Association, 105(490), 493-505.</p></li>
+<li><p>Abadie, Alberto, and Javier Gardeazabal. (2003). “The Economic Costs of Conflict: A Case Study of the Basque Country .” American Economic Review, 93 (1): 113–132.</p></li>
+<li><p>Roberto Ellery Jr., Antônio Nascimento Jr., Adolfo Sachsida. (2018).”Políticas públicas e usos de evidências no Brasil : conceitos, métodos, contextos e práticas”. Políticas públicas : avaliando mais de meio trilhão de reais em gastos públicos, Cap. 12</p></li>
+</ul>
 </section></section>
-<section id="controle-sintético-aplicação" class="title-slide slide level1 center">
-<h1>Controle Sintético: Aplicação</h1>
+<section>
+<section id="anexo" class="title-slide slide level1 center">
+<h1>Anexo</h1>
+
+</section>
+<section id="apêndice" class="slide level2">
+<h2>Apêndice</h2>
+<ul>
+<li><p>Na <a href="#/modelo-3" class="quarto-xref">Equation&nbsp;4</a> Assuma que <span class="math inline">\(\varepsilon_{it}\)</span> sejam independentes entre <span class="math inline">\(i\)</span> e <span class="math inline">\(t\)</span>.</p></li>
+<li><p>Mesmo assim, fatores não-observados <span class="math inline">\(U_{it}=\lambda_{t}\mu_i+\varepsilon_{it}\)</span> podem ser correlacionados entre <span class="math inline">\(i\)</span> e <span class="math inline">\(t\)</span> por conta de <span class="math inline">\(\lambda_t\mu_i\)</span>.</p></li>
+<li><p>Por conta disso, não se pode estimar por MQO e é preciso eliminar o problema dos fatores não-observados.</p></li>
+<li><p>Desta forma, é preciso supor que <span class="math inline">\(\varepsilon_{it}\)</span> sejam independentes de <span class="math inline">\(\{ Z_i, U_i\}_{i=1}^{J+1}\)</span>.</p></li>
+<li><p>Assuma que <span class="math inline">\(\lambda^{{P}^T} \lambda^P\)</span> seja não-singular</p></li>
+<li><p>Subtraindo a equação multiplicada por <span class="math inline">\(\lambda_t \left(\lambda^{{P}^T} \lambda^P \right)^{-1} \lambda^{{P}^T}\)</span> na <a href="#/modelo-4" class="quarto-xref">Equation&nbsp;5</a></p></li>
+</ul>
+<div style="font-size: 60%;">
+<p><span class="math display">\[\begin{align}
+\left(  Y_{1t}^N - \sum_{j=2}^{J+1} W_jY_{jt}^N \right)-\lambda_t \left(\lambda^{{P}^T} \lambda^P \right)^{-1} \lambda^{{P}^T} \left ( Y_{1}^P\sum_{j=2}^{J+1} W_jY_{j}^P \right)&amp;
+= \left( \theta_t-\lambda_t \left(\lambda^{{P}^T} \lambda^P \right)^{-1} \lambda^{{P}^T}\theta^P \right) \left [ Z_1-\sum_{j=2}^{J+1} W_jZ_j \right ]\\
+&amp;+\left( \lambda_t- \lambda_t \left(\lambda^{{P}^T} \lambda^P \right)^{-1} \lambda^{{P}^T}  \lambda^P \right) \left[ \mu_1-\sum_{j=2}^{J+1} W_j\mu_j \right ]\\
+&amp;+ \sum_{j=2}^{J+1} W_j\left(\varepsilon_{1t}-\varepsilon_{jt} \right )-  \lambda_t \left(\lambda^{{P}^T} \lambda^P \right)^{-1} \lambda^{{P}^T} \left(\varepsilon_1^{P}- \sum_{j=2}^{J+1} W_j \varepsilon_{j}^P\right )
+
+\end{align}\]</span></p>
+</div>
+</section>
+<section id="modelo-10" class="slide level2">
+<h2>Modelo</h2>
+<ul>
+<li>e por tanto</li>
+</ul>
+<div style="font-size: 80%;">
+<p><span class="math display">\[\begin{align}
+\left(  Y_{1t}^N - \sum_{j=2}^{J+1} W_jY_{jt}^N \right) &amp;= \lambda_t \left(\lambda^{{P}^T} \lambda^P \right)^{-1} \lambda^{{P}^T} \left ( Y_{1}^P\sum_{j=2}^{J+1} W_jY_{j}^P \right)\\
+
+&amp; +\left( \theta_t-\lambda_t \left(\lambda^{{P}^T} \lambda^P \right)^{-1} \lambda^{{P}^T}\theta^P \right) \left [ Z_1-\sum_{j=2}^{J+1} W_jZ_j \right ]\\
+&amp;+ \sum_{j=2}^{J+1} W_j\left(\varepsilon_{1t}-\varepsilon_{jt} \right )-  \lambda_t \left(\lambda^{{P}^T} \lambda^P \right)^{-1} \lambda^{{P}^T} \left ( \sum_{j=2}^{J+1} W_j\left(\varepsilon_{1}^P-\varepsilon_{j}^P \right )  \right)
+
+\end{align}\]</span></p>
+</div>
 
 <div class="quarto-auto-generated-content">
 <p><img src="imagens/imecc.png" class="slide-logo"></p>
 <div class="footer footer-default">
-<p>| ME920/MI628 - Inferência Causal |</p>
+<p>ME920/MI628 - Inferência Causal</p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
