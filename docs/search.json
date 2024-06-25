@@ -1,0 +1,86 @@
+[
+  {
+    "objectID": "Slide.html#introdução",
+    "href": "Slide.html#introdução",
+    "title": "Syntetic Contrlos",
+    "section": "Introdução",
+    "text": "Introdução"
+  },
+  {
+    "objectID": "Slide.html#modelo",
+    "href": "Slide.html#modelo",
+    "title": "Syntetic Contrlos",
+    "section": "Modelo",
+    "text": "Modelo\n\nConta-se \\(J+1\\) Unidades observadas em \\(T\\) periodos.\n\nA primeira unidade sofre intervenção\nDonor pool, potenciais controles, é o conjunto das unidades 2 a \\(J+1\\)\n\nA intervenção ocorre a partir de \\(T_0\\) tal que \\(1 \\leq T_0\\leq T\\) e seus efeitos podem se propagar de \\(T_0+1\\) a \\(T\\).\n\\(Y_{it}^N:\\) Resultados potenciais de unidade \\(i\\) no período \\(t\\) (sem intervenção)\n\\(Y_{it}^{I}:\\) Resultados potenciais de unidade \\(i\\) nos períodos \\(t\\) posteriores à exposição de \\(i\\) à intervenção.\nA intervenção não afeta \\(Y\\) antes da implementação e os \\(Y\\) não-tratadas não são impactados pela intervenção."
+  },
+  {
+    "objectID": "Slide.html#modelo-1",
+    "href": "Slide.html#modelo-1",
+    "title": "Syntetic Contrlos",
+    "section": "Modelo",
+    "text": "Modelo\n\nSejam:\n\n\\(\\alpha_{it}=Y_{it}^I-Y_{it}^{N}\\) o efeito da intervenção na unidade \\(i\\) em \\(t\\)\n\n\\(D_{it}=1\\) se \\(i=1\\) e \\(t&gt;T_0\\) e \\(D_{it}=0\\) caso contrário\n\n\nos resultados são\n\n\\[Y_{it}=Y_{it}^N + \\alpha_{it}D_{it}\\]\n\ne queremos estimar \\(\\alpha_{1t}=Y_{1t}^I-Y_{1t}^N\\)\n\\(Y_{1t}^N\\) é missing após a intervenção.\nSuponga que a equação de \\(Y_{it}^N\\) seja dada pelo modelo de fatores\n\n\\[Y_{it}^N=\\delta_t+\\theta_t Z_i + \\lambda_t \\mu_i + \\varepsilon_{it}\\]"
+  },
+  {
+    "objectID": "Slide.html#modelo-2",
+    "href": "Slide.html#modelo-2",
+    "title": "Syntetic Contrlos",
+    "section": "Modelo",
+    "text": "Modelo\n\n\\(\\delta_t\\): é um fator comum no tempo não observado (comum entre as unidades )\n\\(Z_i\\): é o vetor de covariadas observadas (não-afeladas pelo tratamento)\n\n\\(\\lambda_t\\): é um vetor de fatores comuns não-observados\n\\(\\mu_i\\): é um vetor de fatores específicos\n\\(\\varepsilon_{it}\\): reprecenta choques transitórios.\n\\(\\lambda_t \\mu_i\\) permite que efeitos fixos variem no tempo ( mudanças temporárias), permite respostas heterôgeneas para fatores não-observados multiplos.\nCosidere um vetor de pesos \\(W=(W_1,W_2,...,W_{J+1})\\) em que \\(W_j\\geq 0\\), \\(\\forall j\\) e que \\(\\sum_{j=2}^{J+1}W_j=1\\). cada \\(W\\) representa um controle sintético (media ponderada das regiões) e o resultado potencial de cada controle sintético é: \\[\\sum_{j=2}^{J+1} W_jY_{jt}^N=\\delta_t+\\theta_t\\sum_{j=2}^{J+1} W_jZ_j + \\lambda_t\\sum_{j=2}^{J+1} W_j\\mu_j+ \\sum_{j=2}^{J+1} W_j\\varepsilon_{jt}\\]"
+  },
+  {
+    "objectID": "Slide.html#modelo-3",
+    "href": "Slide.html#modelo-3",
+    "title": "Syntetic Contrlos",
+    "section": "Modelo",
+    "text": "Modelo\n\nAssim, tem-se que, subtraindo as equações (para \\(i=1\\)), \\[Y_{1t}^N-\\sum_{j=2}^{J+1} W_jY_{jt}^N=\\theta_t \\left [ Z_1-\\sum_{j=2}^{J+1} W_jZ_j \\right ]+ \\lambda_t \\left[ \\mu_1-\\sum_{j=2}^{J+1} W_j\\mu_j \\right ]+ \\sum_{j=2}^{J+1} W_j\\left(\\varepsilon_{1t}-\\varepsilon_{jt} \\right )\\]\nAssuma que \\(\\varepsilon_{it}\\) sejam independentes entre \\(i\\) e \\(t\\).\nMesmo assim, fatores não-observados \\(U_{it}=\\lambda_{t}\\mu_i+\\varepsilon_{it}\\) podem ser correlacionados entre \\(i\\) e \\(t\\) por conta de \\(\\lambda_t\\mu_i\\).\nPor conta disso, não se pode estimar por MQO e é preciso eliminar o problema dos fatores não-observados.\nDesta forma, é preciso supor que \\(\\varepsilon_{it}\\) sejam independentes de \\(\\{ Z_i, U_i\\}_{i=1}^{J+1}\\)."
+  },
+  {
+    "objectID": "Slide.html#modelo-4",
+    "href": "Slide.html#modelo-4",
+    "title": "Syntetic Contrlos",
+    "section": "Modelo",
+    "text": "Modelo\n\ndenotemos por \\(P\\) os siguintes vetores pré-tratamento:\n\n\\(Y_i^P:\\) vetor \\(T_0 \\times 1\\) com o -t-ésimo elemento de \\(Y_{it}\\)\n\\(\\varepsilon^P:\\) vetor \\(T_0 \\times 1\\) com o -t-ésimo elemento de \\(\\varepsilon_{it}\\)\n\\(\\theta^P:\\) vetor \\(T_0 \\times r\\) com o -t-ésima linha \\(\\theta_t\\)\n\\(\\lambda^P:\\) vetor \\(T_0 \\times f\\) com o -t-ésima linha \\(\\lambda_t\\)\n\nObtenemos da equação aplicada ao período pre-tratamento\n\n\\[Y_{1}^P-\\sum_{j=2}^{J+1} W_jY_{j}^P=\\theta^P \\left [ Z_1-\\sum_{j=2}^{J+1} W_jZ_j \\right ]+ \\lambda^P \\left[ \\mu_1-\\sum_{j=2}^{J+1} W_j\\mu_j \\right ]+ \\left(\\varepsilon_1^{P}- \\sum_{j=2}^{J+1} W_j \\varepsilon_{j}^P\\right )\\]\n\nAssuma que \\(\\lambda^{{P}^T} \\lambda^P\\) seja não-singular\nSubtraindo a equação multiplicada por \\(\\lambda_t \\left(\\lambda^{{P}^T} \\lambda^P \\right)^{-1} \\lambda^{{P}^T}\\)"
+  },
+  {
+    "objectID": "Slide.html#modelo-5",
+    "href": "Slide.html#modelo-5",
+    "title": "Syntetic Contrlos",
+    "section": "Modelo",
+    "text": "Modelo\n\\[\\left(  Y_{1t}^N - \\sum_{j=2}^{J+1} W_jY_{jt}^N \\right)-\\lambda_t \\left(\\lambda^{{P}^T} \\lambda^P \\right)^{-1} \\lambda^{{P}^T} \\left ( Y_{1}^P\\sum_{j=2}^{J+1} W_jY_{j}^P \\right)\\]\n\\[= \\left( \\theta_t-\\lambda_t \\left(\\lambda^{{P}^T} \\lambda^P \\right)^{-1} \\lambda^{{P}^T}\\theta^P \\right) \\left [ Z_1-\\sum_{j=2}^{J+1} W_jZ_j \\right ]\\]\n\\[+\\left( \\lambda_t- \\lambda_t \\left(\\lambda^{{P}^T} \\lambda^P \\right)^{-1} \\lambda^{{P}^T}  \\lambda^P \\right) \\left[ \\mu_1-\\sum_{j=2}^{J+1} W_j\\mu_j \\right ]\\]\n\\[+ \\sum_{j=2}^{J+1} W_j\\left(\\varepsilon_{1t}-\\varepsilon_{jt} \\right )-  \\lambda_t \\left(\\lambda^{{P}^T} \\lambda^P \\right)^{-1} \\lambda^{{P}^T} \\left(\\varepsilon_1^{P}- \\sum_{j=2}^{J+1} W_j \\varepsilon_{j}^P\\right )\\]"
+  },
+  {
+    "objectID": "Slide.html#modelo-6",
+    "href": "Slide.html#modelo-6",
+    "title": "Syntetic Contrlos",
+    "section": "Modelo",
+    "text": "Modelo\n\\[\\left(  Y_{1t}^N - \\sum_{j=2}^{J+1} W_jY_{jt}^N \\right) = \\lambda_t \\left(\\lambda^{{P}^T} \\lambda^P \\right)^{-1} \\lambda^{{P}^T} \\left ( Y_{1}^P\\sum_{j=2}^{J+1} W_jY_{j}^P \\right)\\]\n\\[+ \\left( \\theta_t-\\lambda_t \\left(\\lambda^{{P}^T} \\lambda^P \\right)^{-1} \\lambda^{{P}^T}\\theta^P \\right) \\left [ Z_1-\\sum_{j=2}^{J+1} W_jZ_j \\right ]\\]\n\\[+ \\sum_{j=2}^{J+1} W_j\\left(\\varepsilon_{1t}-\\varepsilon_{jt} \\right )-  \\lambda_t \\left(\\lambda^{{P}^T} \\lambda^P \\right)^{-1} \\lambda^{{P}^T} \\left ( \\sum_{j=2}^{J+1} W_j\\left(\\varepsilon_{1}^P-\\varepsilon_{j}^P \\right )  \\right)\\]\n\nSuponha agora que exista \\(W^*=(W_1^*,W_2^*,...,W_{J+1}^*)\\) tal que \\[\\sum_{j=2}^{J+1}W_j^* Y_{j1}=Y_{11},\\sum_{j=2}^{J+1}W_j^* Y_{j2}=Y_{12},...,\\sum_{j=2}^{J+1}W_j^* Y_{jT_0}=Y_{1T_0}, \\sum_{j=2}^{J+1}W_j^* Z_{j}=Z_{1} \\]"
+  },
+  {
+    "objectID": "Slide.html#modelo-7",
+    "href": "Slide.html#modelo-7",
+    "title": "Syntetic Contrlos",
+    "section": "Modelo",
+    "text": "Modelo\n\nAssim, o ajuste do contrafactual pode ser reduzido a\n\n\\[Y_{1j}^N-\\sum W_j^* Y_{jt}^N=R_{1t}+R_{2t}+R_{3t}\\] - Onde\n\\[R_{1t}= \\lambda_t \\left(\\lambda^{{P}^T} \\lambda^P \\right)^{-1} \\lambda^{{P}^T} \\sum W_j^* \\varepsilon_j^P,\\]\n\\[R_{2t}= -\\lambda_t \\left(\\lambda^{{P}^T} \\lambda^P \\right)^{-1} \\lambda^{{P}^T}  \\varepsilon_1^P,\\] \\[R_{1t}= \\left( \\varepsilon_1^P-\\sum_{j=2}^{J+2} W_j \\varepsilon_j^P \\right)\\]"
+  },
+  {
+    "objectID": "Slide.html#modelo-8",
+    "href": "Slide.html#modelo-8",
+    "title": "Syntetic Contrlos",
+    "section": "Modelo",
+    "text": "Modelo\n\nConsidere que \\(E(R_{2t})=E(R_{3t})=0, \\forall t &gt; T_0\\)\nE para \\(R_{1t}\\) mostra-se que: \\[E|R_{1t}| \\leq C(p)^{\\frac{1}{p}}\\left( \\frac{\\bar{\\lambda}^2F}{\\xi}\\right)J^{\\frac{1}{p}}max \\left\\{ \\frac{(\\bar{m}_p)^{\\frac{1}{p}}}{T_0^{1-\\frac{1}{p}}},\\frac{\\bar{\\sigma}}{\\sqrt{T_0}}  \\right\\}\\]\nem que\n\n\\(C(p)\\) é o p-ésimo momento central (menos 1) de uma variável aleatória Poisson com \\(\\lambda=1\\)\n\\(\\left( \\frac{\\bar{\\lambda}^2F}{\\xi}\\right)\\) é o limite inferior dos autovalores de \\(\\frac{1}{M}\\sum \\lambda_t^T \\lambda_t\\)\n\\(\\bar{m}_p\\) é a média do p-ésimo momento de \\(\\varepsilon_{jt}\\)\n\\(\\bar{\\sigma}\\) é o \\(max(\\sigma_j^2\\), em que \\(\\sigma_j^2=E(\\varepsilon_{jt}^2)\\)."
+  },
+  {
+    "objectID": "Slide.html#modelo-9",
+    "href": "Slide.html#modelo-9",
+    "title": "Syntetic Contrlos",
+    "section": "Modelo",
+    "text": "Modelo\n\nA última equação implica que o viés do estimador (\\(E(R_{1t})\\)) pode ser limitado por uma função que vai para zero à medida que o número de períodos (\\(T_0\\)) de pré-tratamento aumenta.\nconforme \\(T_0\\) cresce, o matching nos resultados pré-intervenção ajuda a controlar fatores não-observados e heterogeneidade dos efeitos observados sobre \\(Y\\).\nAs unidades parecidas nos determinantes observados e não observados de \\(Y\\) deben producir trajetórias similares ás de \\(Y\\) em instantes posteriores a \\(T_0\\). A diferença entre as trajectórias em \\(t&gt; T_0\\) é o efeito da intervenção\n\n\\[\\hat{\\alpha_{1t}}=Y_{1t}-\\sum_{j+2}^{J+1}W_j^* Y_{jt} ~ t \\in \\{ T_0+1, T_0+2,...,T\\}\\]"
+  },
+  {
+    "objectID": "Slide.html#modelo-10",
+    "href": "Slide.html#modelo-10",
+    "title": "Syntetic Contrlos",
+    "section": "Modelo",
+    "text": "Modelo\n\nAs condições para \\(W*\\) esablecidas valem na igualdade se \\((Y_{11}, Y_{12},...,Y_{1T_0}, Z_1^T)\\)\npertence ao cone convexo gerado por \\({(Y_{21}, Y_{22},...,Y_{2T_0}, Z_2^T),..., (Y_{(J+1)1},(Y_{(J+1)2},...,Y_{(J+1)T_0}, Z_{(J+1)}^T)}\\)\nO soporte debe ser parecido\n\\(W^*\\) satisfaz as condições aproximadamente\nviés de interpolação entre regiões com características diferentes"
+  }
+]
